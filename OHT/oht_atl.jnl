@@ -1,0 +1,28 @@
+use "/archive/ogrp/CMIP6/OMIP/warsaw_201803_mom6_2018.04.06/OM4p25_IAF_BLING_CFC_csf/gfdl.ncrc4-intel16-prod/pp/ocean_annual_z/av/annual_20yr/ocean_annual_z.1988-2007.ann.nc"
+
+use "/archive/oar.gfdl.bgrp-account/CMIP6/OMIP/warsaw_201803_mom6_2018.04.11/OM4p5_IAF_BLING_CFC_abio_csf_mle200/gfdl.ncrc4-intel16-prod/pp/ocean_annual_z/av/annual_20yr/ocean_annual_z.1988-2007.ann.nc"
+
+use "/archive/oar.gfdl.bgrp-account/CMIP6/OMIP/warsaw_201803_mom6_2018.04.11/OM4p5_IAF_BLING_CFC_abio_csf_p25config/gfdl.ncrc4-intel16-prod/pp/ocean_annual_z/av/annual_20yr/ocean_annual_z.1988-2007.ann.nc"
+
+use basin_codes.nc
+use basin_codes_OM4_05.nc
+
+let tmask_atl = if (( basin[d=4] EQ 2 OR basin[d=4] EQ 4)) then 1 else 0
+let oht_atl = T_ady[i=1:1440]*tmask_atl[i=1:1440]
+
+let oht_980 = oht_atl[z=@sum,x=@sum,d=1]/1e15
+SET MEMORY/SIZE=500
+
+save/file=oht_atl_980.nc oht_980
+
+let tmask_atl = if (( basin[d=5] EQ 2 OR basin[d=5] EQ 4)) then 1 else 0
+let oht_atl = T_ady[i=1:720]*tmask_atl[i=1:720]
+
+let oht_986 = oht_atl[z=@sum,x=@sum,d=2]/1e15
+let oht_987 = oht_atl[z=@sum,x=@sum,d=3]/1e15
+
+save/file=oht_atl_986.nc oht_986
+save/file=oht_atl_987.nc oht_987
+
+
+

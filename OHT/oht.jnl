@@ -1,0 +1,18 @@
+use "/archive/ogrp/CMIP6/OMIP/warsaw_201803_mom6_2018.04.06/OM4p25_IAF_BLING_CFC_csf/gfdl.ncrc4-intel16-prod/pp/ocean_annual_z/av/annual_20yr/ocean_annual_z.1988-2007.ann.nc"
+
+use "/archive/oar.gfdl.bgrp-account/CMIP6/OMIP/warsaw_201803_mom6_2018.04.11/OM4p5_IAF_BLING_CFC_abio_csf_mle200/gfdl.ncrc4-intel16-prod/pp/ocean_annual_z/av/annual_20yr/ocean_annual_z.1988-2007.ann.nc"
+
+use "/archive/oar.gfdl.bgrp-account/CMIP6/OMIP/warsaw_201803_mom6_2018.04.11/OM4p5_IAF_BLING_CFC_abio_csf_p25config/gfdl.ncrc4-intel16-prod/pp/ocean_annual_z/av/annual_20yr/ocean_annual_z.1988-2007.ann.nc"
+
+let oht_980 = T_ADY[z=@sum,x=@sum,d=1]/1e15
+let oht_986 = T_ADY[z=@sum,x=@sum,d=2]/1e15
+let oht_987 = T_ADY[z=@sum,x=@sum,d=3]/1e15
+
+save/file=oht_980.nc oht_980
+save/file=oht_986.nc oht_986
+save/file=oht_987.nc oht_987
+
+
+
+
+
